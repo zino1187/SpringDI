@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- 이 어플리케이션에서 사용할 모든 객체는 앞으로 new 하지 않고
+	이 xml 문서에 등록만 하면, 스프링 프레임웍이 알아서 메모리에 올
+	려주고 주입도 시켜준다!! -->
+	<bean id="fryPan" class="food.FryPan"/>
+	
+	<bean id="electPan" class="food.ElectPan"/>
+	
+	<bean id="chef" class="food.Chef">
+		<constructor-arg index="0" ref="electPan"/>
+	</bean>
+	
+</beans>
